@@ -6,6 +6,8 @@
 
 ## Diagrama entidad-relacion
 
+![image00001](https://user-images.githubusercontent.com/71414041/230743123-8f5b8043-01e1-4ab5-af70-8898cb2c6788.jpeg)
+
 
 ## Proyecto Framework PHP - Laravel
 
