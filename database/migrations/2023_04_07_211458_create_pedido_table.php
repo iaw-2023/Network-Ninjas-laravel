@@ -17,7 +17,7 @@ return new class extends Migration
             $table->float('precio');
             $table->timestamps();
             $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('cliente')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_cliente')->references('id')->on('cliente')->onUpdate('cascade');
         });
     }
 
