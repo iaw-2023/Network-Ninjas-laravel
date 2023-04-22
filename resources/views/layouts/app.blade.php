@@ -30,7 +30,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @Auth
+                        <a class="nav-link" href="{{route('producto.index')}}">Productos</a>
+                        @endAuth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
