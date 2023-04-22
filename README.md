@@ -21,8 +21,8 @@ Los reportes que podrán generarse son:
 - Reporte de pedidos hechos y los detalles de cada pedido
 
 Las entidades que se obtendrán por api son:
-- Categorias disponibles
-- Productos disponibles 
+- Todas las Categorias disponibles
+- Algunos Productos disponibles 
 
 Las entidades que podrán ser modificadas por api son:
 - Pedidos

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_pedido');
             $table->foreign('id_pedido')->references('id')->on('pedido')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('id_producto');
-            $table->foreign('id_producto')->references('id')->on('producto')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_producto')->references('id')->on('producto')->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
         });
     }
 
