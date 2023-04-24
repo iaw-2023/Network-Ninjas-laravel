@@ -23,6 +23,7 @@ Los reportes que podrán generarse son:
 Las entidades que se obtendrán por api son:
 - Categoria
 - Producto
+
 El usuario podra ver todas las categorías y filtrar por ellas o buscar por nombre los diferentes productos
 
 
