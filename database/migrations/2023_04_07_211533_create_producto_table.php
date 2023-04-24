@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('img');
             $table->timestamps();
             $table->unsignedBigInteger('id_categoria');
-            $table->foreign('id_categoria')->references('id')->on('categoria')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_categoria')->references('id')->on('categoria')->onUpdate('cascade');
         });
     }
 
