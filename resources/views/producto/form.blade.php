@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('nombre') }}
             {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
@@ -23,7 +23,8 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+    <div class="box-footer mt-3">
+        <button type="submit" class="btn bg-dark text-white">{{ __('Guardar') }}</button>
+        <a class="btn bg-dark text-white ms-2" href="{{ route('producto.index') }}"> {{ __('Cancelar') }}</a>
     </div>
 </div>

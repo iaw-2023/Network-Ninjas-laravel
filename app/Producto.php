@@ -15,14 +15,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  * @property $id_categoria
  *
- * @property Categorium $categorium
+ * @property Categoria $categoria
  * @property DetallesPedido[] $detallesPedidos
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Producto extends Model
 {
-    
+
     static $rules = [
 		'nombre' => 'required',
 		'precio' => 'required',
@@ -43,11 +43,11 @@ class Producto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function categorium()
+    public function categoria()
     {
-        return $this->hasOne('App\Categorium', 'id', 'id_categoria');
+        return $this->hasOne('App\Categoria', 'id', 'id_categoria');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -55,6 +55,6 @@ class Producto extends Model
     {
         return $this->hasMany('App\DetallesPedido', 'id_producto', 'id');
     }
-    
+
 
 }

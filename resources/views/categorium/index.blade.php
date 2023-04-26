@@ -1,25 +1,26 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Producto
+    Categorium
 @endsection
 
 @section('content')
+
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
 <div class="container-fluid" style="font-family: 'system-ui', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card" style="border-style: none;">
                     <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center; color:#fff; border-style:none; border:none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title" style="color:black;">
-                                {{ __('Productos') }}
+                            <span id="card_title">
+                                {{ __('Categorias') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('producto.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left" style="color:#fff; background-color:#000000;">
-                                  {{ __('Agregar producto') }}
+                                <a href="{{ route('categorium.create') }}" class="btn btn-sm float-right" style="color:#fff; background-color:black;" data-placement="left">
+                                  {{ __('Agregar categoria') }}
                                 </a>
                               </div>
                         </div>
@@ -29,36 +30,27 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover text-center" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
-                                <thead>
+                            <table class="table table-hover text-center table-stripped" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+                                <thead class="thead">
                                     <tr style="background-color: #000000; color:#fff;">
 										<th>Nombre</th>
-										<th>Precio</th>
-										<th>Imagen</th>
-										<th>Categoria</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($producto as $product)
+                                    @foreach ($categoria as $categorium)
                                         <tr>
-											<td>{{ $product->nombre }}</td>
-											<td>{{ $product->precio }}</td>
-											<td><img style="height:150px; width:250px;" src="{{ $product->img }}"></td>
-											<td> {{$product->categoria->nombre}}
-                                            </td>
-
+                							<td>{{ $categorium->nombre }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <form action="{{ route('producto.destroy',$product->id) }}">
-                                                        <a class="btn btn-sm text-white bg-dark w-20 p-2" style="border-radius: 5rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
-                                                        <a class="btn btn-sm text-white bg-dark w-20 p-2 ms-2" style="border-radius: 5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    </form>
-                                                    <button class="btn btn-sm text-white bg-dark w-20 p-2 ms-2 bd" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$product->id}}" style="border-radius: 5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
-                                                    </div>
+                                                <form action="{{ route('categorium.destroy',$categorium->id) }}">
+                                                    <a class="btn btn-sm text-white bg-dark w-20 p-2" style="border-radius: 5rem;" href="{{ route('categorium.show',$categorium->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm text-white bg-dark w-20 p-2 ms-2" style="border-radius: 5rem;" href="{{ route('categorium.edit',$categorium->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                </form>
+                                                <button class="btn btn-sm text-white bg-dark w-20 p-2 ms-2 bd" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$categorium->id}}" style="border-radius: 5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -70,8 +62,8 @@
             </div>
         </div>
     </div>
-   <!-- Modal -->
-   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,7 +71,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ¿Esta seguro que quiere eliminar este producto?
+          ¿Esta seguro que quiere eliminar esta categoria?
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">No, cerrar</button>

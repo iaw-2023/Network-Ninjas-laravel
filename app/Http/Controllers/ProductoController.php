@@ -19,8 +19,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos =Producto::all();
-        return view('producto.index')->with('productos', $productos);
+        $producto = Producto::orderBy('id','asc')->get();
+        return view('producto.index')
+        ->with('producto',$producto);
     }
 
     /**
@@ -46,7 +47,7 @@ class ProductoController extends Controller
         $producto = Producto::create($request->all());
 
         return redirect()->route('producto.index')
-            ->with('success', 'Producto created successfully.');
+            ->with('success', 'Producto creado exitosamente.');
     }
 
     /**
@@ -88,7 +89,7 @@ class ProductoController extends Controller
         $producto->update($request->all());
 
         return redirect()->route('producto.index')
-            ->with('success', 'Producto updated successfully');
+            ->with('success', 'Producto actualizado exitosamente');
     }
 
     /**
@@ -105,7 +106,7 @@ class ProductoController extends Controller
         if(!$detalles){
             Producto::find($id)->delete();
             $resultado='success';
-            $mensaje='Producto eliminado';
+            $mensaje='Producto eliminado exitosamente';
             return redirect()->route('producto.index')
             ->withErrors($mensaje);
         }

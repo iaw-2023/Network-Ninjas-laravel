@@ -15,6 +15,10 @@ class Categoria extends Model
         'nombre'
     ];
 
+    static $rules = [
+		'nombre' => 'required',
+    ];
+
     public function productos(){
         return $this->hasMany(Producto::class);
     }
