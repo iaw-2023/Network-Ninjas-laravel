@@ -1,24 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Categorium
- *
- * @property $id
- * @property $nombre
- * @property $created_at
- * @property $updated_at
- *
- * @property Producto[] $productos
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
 class Categorium extends Model
 {
-    
+
     static $rules = [
 		'nombre' => 'required',
     ];
@@ -38,8 +26,8 @@ class Categorium extends Model
      */
     public function productos()
     {
-        return $this->hasMany('App\Producto', 'id_categoria', 'id');
+        return $this->hasMany('App\Models\Producto', 'id_categoria', 'id');
     }
-    
+
 
 }

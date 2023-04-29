@@ -16,7 +16,6 @@
                             <span id="card_title" style="color:black;">
                                 {{ __('Productos') }}
                             </span>
-
                              <div class="float-right">
                                 <a href="{{ route('producto.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left" style="color:#fff; background-color:#000000;">
                                   {{ __('Agregar producto') }}
@@ -29,6 +28,13 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    @if($errors->any())
+                                <div class="alert alert-danger">
+                                 @foreach ($errors->all() as $error)
+                                    <p>{{$error}}</p>
+                                 @endforeach
+                                 </div>
+                             @endif
 
                     <div class="card-body">
                         <div class="table-responsive">
@@ -83,7 +89,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">No, cerrar</button>
-            <form id="deleteForm" data-bs-action="/categorium/" method="POST" action="">
+            <form id="deleteForm" data-bs-action="/producto/" method="POST" action="">
             @csrf
             @method('DELETE')
                 <button class="btn btn-outline-primary btn-sm">Si, eliminar</button>
@@ -91,6 +97,7 @@
         </div>
       </div>
     </div>
+
 </div>
 <!-- Script del Modal -->
 <script>

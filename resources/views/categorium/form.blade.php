@@ -3,7 +3,7 @@
 
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('nombre', $categorium->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {{ Form::text('nombre', $categorium->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'required', 'maxlength=50']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

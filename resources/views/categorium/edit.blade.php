@@ -5,11 +5,8 @@
 @endsection
 
 @section('content')
-    <style>
-        *{
-            font-family:Arial, Helvetica, sans-serif;
-        }
-    </style>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+<div class="container-fluid" style="font-family: 'system-ui', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
