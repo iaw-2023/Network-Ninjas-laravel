@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorium;
+use App\Models\Categorium;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 /**
@@ -11,6 +12,12 @@ use Illuminate\Http\Request;
  */
 class CategoriumController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -100,9 +107,18 @@ class CategoriumController extends Controller
      */
     public function destroy($id)
     {
-        $categorium = Categorium::find($id)->delete();
+        $categ = Producto::where('id_categoria',$id)->exists();
+        $resultado='error';
+        $mensaje='Este categoria no puede eliminarse porque existen productos asociados a ella';
 
-        return redirect()->route('categorium.index')
-            ->with('success', 'Categoria eliminada exitosamente');
+        if(!$categ){
+            Categorium::find($id)->delete();
+            $resultado='success';
+            $mensaje='Categoria eliminada exitosamente';
+            return redirect()->route('categorium.index') ->with($resultado, $mensaje);
+        }
+        else{
+             return redirect()->back()->withErrors($mensaje);
+        }
     }
 }

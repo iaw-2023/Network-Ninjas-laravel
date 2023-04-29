@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Categorium;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,12 @@ use Illuminate\Http\Request;
  */
 class ProductoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +27,8 @@ class ProductoController extends Controller
     public function index()
     {
         $producto = Producto::orderBy('id','asc')->get();
-        return view('producto.index')
-        ->with('producto',$producto);
+
+        return view('producto.index')->with('producto',$producto);
     }
 
     /**
@@ -32,7 +39,9 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $categorias= Categorium::all();
+
+        return view('producto.create')->with('producto',$producto)->with('categorias',$categorias);
     }
 
     /**
@@ -72,8 +81,9 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
+        $categorias= Categorium::all();
 
-        return view('producto.edit', compact('producto'));
+        return view('producto.edit')->with('producto',$producto)->with('categorias',$categorias);
     }
 
     /**
@@ -101,17 +111,17 @@ class ProductoController extends Controller
     {
         $detalles = DetallesPedido::where('id_producto',$id)->exists();
         $resultado='error';
-        $mensaje='No puede eliminarse';
+        $mensaje='Este producto no puede eliminarse porque existen pedidos asociados a el';
 
         if(!$detalles){
             Producto::find($id)->delete();
             $resultado='success';
             $mensaje='Producto eliminado exitosamente';
-            return redirect()->route('producto.index')
-            ->withErrors($mensaje);
+            return redirect()->route('producto.index') ->with($resultado, $mensaje);
+        }
+        else{
+             return redirect()->back()->withErrors($mensaje);
         }
 
-        return redirect()->route('producto.index')
-            ->with($resultado, $mensaje);
     }
 }
