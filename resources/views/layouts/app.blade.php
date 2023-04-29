@@ -17,7 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
-<body>
+<body style="background-color: white;">
     <div id="app">
     <style>
         *{
@@ -48,7 +48,8 @@
                     <ul class="navbar-nav me-auto">
                         @Auth
                         <a class="nav-link" href="{{route('producto.index')}}">Productos</a>
-                        <a class="nav-link"  href="{{route('categorium.index')}}">Categoria</a>
+                        <a class="nav-link"  href="{{route('categorium.index')}}">Categorias</a>
+                        <a class="nav-link"  href="{{route('pedido.index')}}">Pedidos</a>
                         @endAuth
                     </ul>
 
@@ -58,7 +59,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link"  style="color: #fff;" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
+                                    <a class="nav-link"  href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
                                 </li>
                             @endif
 
@@ -91,7 +92,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="background-color:white;">
             @yield('content')
         </main>
     </div>

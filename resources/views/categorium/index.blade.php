@@ -30,6 +30,13 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    @if($errors->any())
+                                <div class="alert alert-danger">
+                                 @foreach ($errors->all() as $error)
+                                    <p>{{$error}}</p>
+                                 @endforeach
+                                 </div>
+                    @endif
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover text-center table-stripped" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">

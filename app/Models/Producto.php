@@ -2,28 +2,46 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categorium;
 
 class Producto extends Model
 {
-    use HasFactory;
 
+    static $rules = [
+		'nombre' => 'required',
+		'precio' => 'required',
+		'img' => 'required',
+		'id_categoria' => 'required',
+    ];
 
     protected $table = 'producto';
 
-    protected $fillable = [
-        'nombre',
-        'precio',
-        'img',
-        'id_categoria'
-    ];
+    protected $perPage = 20;
 
-    public function detallepedidos(){
-        return $this->hasMany(DetallesPedido::class);
-    }
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nombre','precio','img','id_categoria'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class,'id_categoria');
+        return $this->hasOne(Categorium::class,'id','id_categoria');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function detallesPedidos()
+    {
+        return $this->hasMany('App\Models\DetallesPedido', 'id_producto', 'id');
+    }
+
+
 }
