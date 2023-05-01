@@ -6,82 +6,77 @@ use App\Http\Controllers\Controller;
 use App\Models\Categorium;
 use Illuminate\Http\Request;
 
-/**
- * Class CategoriumController
- * @package App\Http\Controllers
- */
 class CategoriumController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * @OA\Get(
+    *     path="/api/categoria",
+    *     summary="Mostrar todas las categorias",
+    *     description="Se retornan todas las categorias",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se muestran todas las categorias"
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function index()
     {
         return Categorium::orderBy('id','asc')->get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+    * @OA\Get(
+    *     path="/api/categoria/{categorium}",
+    *     summary="Buscar una categoria mediante un ID",
+    *     description="Retorna la categoria con la ID ingresada",
+    *     @OA\Parameter(
+    *          name="id",
+    *          description="ID de la categoria",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelve la categoria buscada"
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function show($id)
     {
         return Categorium::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Categorium $categorium
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Categorium $categorium)
     {
         //
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
     public function destroy($id)
     {
         //

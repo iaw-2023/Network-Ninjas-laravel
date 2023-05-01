@@ -1,0 +1,290 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/api/categoria": {
+            "get": {
+                "summary": "Mostrar todas las categorias",
+                "description": "Se retornan todas las categorias",
+                "operationId": "0954c5412c08c3f44752b1114632c442",
+                "responses": {
+                    "200": {
+                        "description": "Se muestran todas las categorias"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/categoria/{categorium}": {
+            "get": {
+                "summary": "Buscar una categoria mediante un ID",
+                "description": "Retorna la categoria con la ID ingresada",
+                "operationId": "68c22194a0428465cc13bba8b3ecbba9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la categoria",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve la categoria buscada"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/pedido": {
+            "get": {
+                "summary": "Mostrar todos los pedidos",
+                "description": "Se retornan todos los pedidos",
+                "operationId": "05ec28e8b7f083ae0d6d84b88248c6ce",
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven todos los pedidos"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Guardar un pedido",
+                "description": "Se almacena un nuevo pedido",
+                "operationId": "38aefbfc3023cccb1c878f98563070b2",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/pedido/create": {
+            "get": {
+                "summary": "Crear un nuevo pedido",
+                "description": "Retorna un nuevo pedido vacio",
+                "operationId": "a1df613ecacfb8ee131e67464873fd51",
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve el nuevo pedido"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/pedido/{pedido}": {
+            "get": {
+                "summary": "Obtener los detalles de un pedido",
+                "description": "Retorna los detalles de un pedido",
+                "operationId": "9d43cb2d69c533a1aed96f41a5326dc2",
+                "parameters": [
+                    {
+                        "name": "pedido",
+                        "in": "path",
+                        "description": "Pedido a usar",
+                        "required": true,
+                        "schema": {
+                            "type": "pedido"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se retornan todos los detalles asociados al pedido"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar un pedido",
+                "description": "Actualiza un pedido",
+                "operationId": "7e09f992c5d34dd5b838efda5e3fb7a7",
+                "parameters": [
+                    {
+                        "name": "pedido",
+                        "in": "path",
+                        "description": "Pedido a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "pedido"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Elimina un pedido",
+                "description": "Elimina un pedido existente con la ID ingresada",
+                "operationId": "a79b082bd0c78c2c0d0f7f4cb4a56063",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pedido a eliminar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/pedido/{pedido}/edit": {
+            "get": {
+                "summary": "Se obtiene un pedido mediante una ID",
+                "description": "Se obtiene el pedido con la ID ingresada para ser editado",
+                "operationId": "e3e0da938d3ef8edd0972a534b228b7f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pedido a editar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se retorna el pedido buscado para ser editado"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/producto": {
+            "get": {
+                "summary": "Mostrar todos los productos",
+                "description": "Se retornan todos los productos",
+                "operationId": "b9cf2271b56d97e6c0d616aeda8c82f0",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los productos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/producto/{producto}": {
+            "get": {
+                "summary": "Buscar un producto mediante un ID",
+                "description": "Retorna el producto que tenga la ID ingresada",
+                "operationId": "6354949b6e198f2f593a02777db5e702",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del producto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve el producto buscado"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ]
+}

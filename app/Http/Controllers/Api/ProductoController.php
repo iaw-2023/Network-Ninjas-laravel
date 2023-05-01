@@ -6,40 +6,54 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
+
 /**
- * Class ProductoController
- * @package App\Http\Controllers
- */
+* @OA\Info(
+*      version="1.0.0",
+*      title="Laravel OpenApi Documentation"
+* )
+*
+* @OA\Server(
+*      url="http://localhost:8000",
+*      description="API Server"
+* )
+*
+* @OA\Tag(
+*     name="Projects",
+*     description="API Endpoints of Projects"
+* )
+*/
+
+
 class ProductoController extends Controller
 {
 
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * @OA\Get(
+    *     path="/api/producto",
+    *     summary="Mostrar todos los productos",
+    *     description="Se retornan todos los productos",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Mostrar todos los productos."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function index()
     {
         return Producto::orderBy('id','asc')->get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -47,44 +61,44 @@ class ProductoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+    * @OA\Get(
+    *     path="/api/producto/{producto}",
+    *     summary="Buscar un producto mediante un ID",
+    *     description="Retorna el producto que tenga la ID ingresada",
+    *     @OA\Parameter(
+    *          name="id",
+    *          description="ID del producto",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelve el producto buscado"
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function show($id)
     {
         return Producto::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Producto $producto
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Producto $producto)
     {
         //
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
     public function destroy($id)
     {
         //
