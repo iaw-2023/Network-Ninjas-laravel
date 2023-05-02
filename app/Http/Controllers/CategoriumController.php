@@ -65,9 +65,14 @@ class CategoriumController extends Controller
      */
     public function show($id)
     {
-        $categorium = Categorium::find($id);
+        $categoria = Categorium::find($id);
+        $producto = Producto::join('categoria', 'producto.id_categoria', '=', 'categoria.id')
+        ->select('producto.*', 'categoria.nombre')
+        ->orderBy('id', 'asc')
+        ->where('producto.id_categoria', '=', $id)
+        ->simplePaginate(Controller::$RESULT_PAGINATION);
 
-        return view('categorium.show', compact('categorium'));
+         return view('categorium.show')->with('categoria', $categoria)->with('producto', $producto);
     }
 
     /**
