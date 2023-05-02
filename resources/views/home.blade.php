@@ -12,7 +12,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <img src={"/img/image00001.png"} style="width:300px; height:250px; border-radius:100%;" >
                     <br>
                     <p style="margin:1rem; font-size:2rem;">Bienvenidos a CarFects!</p>
 
