@@ -12,10 +12,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <img src="https://i.ibb.co/Snsyq1H/image00001.png" style="width:300px; height:250px; border-radius:100%;" >
+                    <img src="https://i.ibb.co/Snsyq1H/image00001.png" style="width:330px; height:250px; border-radius:100%;" >
                     <br>
-                    <p style="margin:1rem; font-size:2rem;">Bienvenidos a CarFects!</p>
-
+                    <p style="margin:1rem; font-size:2rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Bienvenidos a CarFects!</p>
                 </div>
             </div>
         </div>

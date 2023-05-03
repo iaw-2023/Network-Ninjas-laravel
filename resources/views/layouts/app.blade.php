@@ -22,6 +22,7 @@
     <style>
         *{
             font-size:16px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .nav-link{
             color:#fff;
