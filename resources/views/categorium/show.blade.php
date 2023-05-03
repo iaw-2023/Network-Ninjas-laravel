@@ -21,7 +21,30 @@
 
                         <div class="form-group">
                             <strong>Nombre:</strong>
-                            {{ $categorium->nombre }}
+                            {{ $categoria->nombre }}
+                            <br></br>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover text-center" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+                                <strong>Productos de la categoria</strong>
+                                <thead>
+                                    <tr style="background-color: #000000; color:#fff;">
+										<th>Nombre</th>
+										<th>Precio</th>
+										<th>Imagen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($producto as $product)
+                                        <tr>
+											<td>{{ $product->nombre }}</td>
+											<td>{{ $product->precio }}</td>
+											<td><img style="height:150px; width:250px;" src="{{ $product->img }}"></td>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                         <div class="float-right">
                             <a class="btn bg-dark text-white mt-2" href="{{ route('categorium.index') }}"> {{ __('Volver') }}</a>
@@ -32,3 +55,4 @@
         </div>
     </section>
 @endsection
+

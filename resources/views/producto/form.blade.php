@@ -32,3 +32,4 @@
         <a class="btn bg-dark text-white ms-2" href="{{ route('producto.index') }}"> {{ __('Cancelar') }}</a>
     </div>
 </div>
+
