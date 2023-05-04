@@ -10,5 +10,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    protected static $PAGINATION = 10;
+    protected static $PAGINATION = 8;
 }
