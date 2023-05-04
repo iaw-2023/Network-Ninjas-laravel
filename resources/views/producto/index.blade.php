@@ -70,6 +70,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{$producto->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -26,9 +26,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $producto = Producto::orderBy('id','asc')->get();
+        $producto = Producto::orderBy('id','asc')->simplePaginate(Controller::$RESULT_PAGINATION);
 
-        return view('producto.index')->with('producto',$producto);
+        return view('producto.index', [])->with('producto',$producto);
     }
 
     /**
