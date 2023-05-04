@@ -70,7 +70,7 @@ class CategoriumController extends Controller
         ->select('producto.*', 'producto.nombre')
         ->orderBy('id', 'asc')
         ->where('producto.id_categoria', '=', $id)
-        ->simplePaginate(Controller::$RESULT_PAGINATION);
+        ->simplePaginate(Controller::$PAGINATION);
 
          return view('categorium.show')->with('producto', $producto)->with('categoria', $categoria);
     }
