@@ -60,10 +60,10 @@
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <form action="{{ route('producto.destroy',$product->id) }}">
-                                                        <a class="btn btn-sm text-white bg-dark w-20 p-2" style="border-radius: 5rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
-                                                        <a class="btn btn-sm text-white bg-dark w-20 p-2 ms-2" style="border-radius: 5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     </form>
-                                                    <button class="btn btn-sm text-white bg-dark w-20 p-2 ms-2 bd" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$product->id}}" style="border-radius: 5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                    <button class="btn btn-sm text-white bg-dark" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$product->id}}" style="border-radius: 5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                                     </div>
                                             </td>
                                         </tr>
