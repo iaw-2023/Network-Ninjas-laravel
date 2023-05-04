@@ -58,12 +58,12 @@
                                             </td>
 
                                             <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <form action="{{ route('producto.destroy',$product->id) }}">
-                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
-                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                <div class="d-flex justify-content-center" style="display:flex; flex-direction:column;">
+                                                    <form action="{{ route('producto.destroy',$product->id) }}" style="display:flex; flex-direction:column;">
+                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                        <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem; margin-top:.5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     </form>
-                                                    <button class="btn btn-sm text-white bg-dark" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$product->id}}" style="border-radius: 5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                    <button class="btn btn-sm text-white bg-dark" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$product->id}}" style="border-radius: 5rem; width:6rem; margin-top:.5rem;"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                                     </div>
                                             </td>
                                         </tr>
