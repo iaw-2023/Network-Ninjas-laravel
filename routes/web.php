@@ -26,7 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth', 'verified')->group(function(){
     Route::resource('producto',ProductoController::class);
-    Route::resource('categoria',CategoriumController::class);
+    Route::resource('categorium',CategoriumController::class);
     Route::resource('pedido',PedidoController::class);
     Route::resource('detalle',PedidoController::class);
 });
+
+
