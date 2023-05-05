@@ -30,7 +30,7 @@
 <body>
 <div id="swagger-ui"></div>
 
-<script src="{{ asset('docs/assets/swagger-ui-bundle.js') }}"></script>
+<script src="{{ asset('public/docs/assets/swagger-ui-bundle.js') }}"></script>
 <script src="{{ asset('docs/assets/swagger-ui-standalone-preset.js') }}"></script>
 <script>
     window.onload = function() {
