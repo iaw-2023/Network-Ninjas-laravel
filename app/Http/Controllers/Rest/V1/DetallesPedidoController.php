@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pedido;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class DetallesPedidoController extends Controller
      *      ),
      *      @OA\Response(
      *          response=201,
-     *          description="Detalle creado correctamente",
+     *          description="Detalle creado correctamente"
      *       ),
      *      @OA\Response(
      *          response=400,
@@ -28,7 +29,7 @@ class DetallesPedidoController extends Controller
      *      ),
      *      @OA\Response(
      *          response=401,
-     *          description="No autenticado",
+     *          description="No autenticado"
      *      ),
      *      @OA\Response(
      *          response=403,

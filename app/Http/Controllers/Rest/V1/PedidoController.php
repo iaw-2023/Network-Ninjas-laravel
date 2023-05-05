@@ -14,14 +14,12 @@ class PedidoController extends Controller
      * @OA\Post(
      *      path="/rest/v1/pedidos",
      *      tags={"pedidos"},
-     *      summary="Guardar un pedido",
-     *      description="Se almacena un nuevo pedido",
      *      @OA\RequestBody(
      *          required=true,
      *      ),
      *      @OA\Response(
      *          response=201,
-     *          description="Pedido creado correctamente",
+     *          description="Pedido creado correctamente"
      *       ),
      *      @OA\Response(
      *          response=400,
@@ -29,7 +27,7 @@ class PedidoController extends Controller
      *      ),
      *      @OA\Response(
      *          response=401,
-     *          description="No autenticado",
+     *          description="No autenticado"
      *      ),
      *      @OA\Response(
      *          response=403,

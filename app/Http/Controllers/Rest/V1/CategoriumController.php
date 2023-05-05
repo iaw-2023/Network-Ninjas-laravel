@@ -11,7 +11,7 @@ class CategoriumController extends Controller
     /**
     * @OA\Get(
     *     path="/rest/v1/categorias",
-    *     tags={"categorias"}
+    *     tags={"categorias"},
     *     summary="Mostrar todas las categorias",
     *     description="Se retornan todas las categorias",
     *     @OA\Response(
@@ -32,7 +32,7 @@ class CategoriumController extends Controller
     /**
     * @OA\Get(
     *     path="/rest/v1/categorias/{categorium}",
-    *     tags={"categorias"}
+    *     tags={"categorias"},
     *     summary="Buscar una categoria mediante un ID",
     *     description="Retorna la categoria con la ID ingresada",
     *     @OA\Parameter(
