@@ -58,7 +58,7 @@
                                             </td>
 
                                             <td>
-                                                <div class="d-flex justify-content-center" style="display:flex; flex-direction:column;">
+                                                <div class="d-flex justify-content-center" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
                                                     <form action="{{ route('producto.destroy',$product->id) }}" style="display:flex; flex-direction:column;">
                                                         <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem;" href="{{ route('producto.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
                                                         <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem; margin-top:.5rem;" href="{{ route('producto.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>

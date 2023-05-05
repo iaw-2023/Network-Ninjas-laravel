@@ -32,7 +32,6 @@
 										<th>Fecha Pedido</th>
 										<th>Precio</th>
 										<th>Cliente</th>
-                                        <th>Detalle</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -43,15 +42,7 @@
 											<td>{{ $pedid->precio }}</td>
 											<td>{{ $pedid->cliente->nombre }}</td>
                                             <td>
-                                                @foreach($pedid->detallespedidos as $detalles)
-                                                ID de producto: {{$detalles->id_producto}} <br>
-                                                Cantidad de producto: {{$detalles->cantidad}} <br>
-                                                Nombre de producto: {{$detalles->producto->nombre}} <br>
-                                                Precio total: {{$detalles->precio_total}} <br>
-                                                @endforeach
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm bg-dark text-white" href="{{ route('pedido.show',$pedid->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                <a class="btn btn-sm bg-dark text-white" href="{{ route('pedido.show',$pedid->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Informacion de detalles') }}</a>
                                             </td>
                                         </tr>
                                     @endforeach
