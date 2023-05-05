@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Rest\V1\CategoriumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], function(){
-    Route::apiResource('producto',ProductoController::class);
-    Route::apiresource('categoria',CategoriumController::class);
-    Route::resource('pedido',PedidoController::class);
+    Route::apiResource('productos',ProductoController::class);
+    Route::apiresource('categorias',CategoriumController::class);
+    Route::apiresource('pedidos',PedidoController::class);
+    Route::apiresource('detalles',DetallesPedidoController::class);
 });
 
 

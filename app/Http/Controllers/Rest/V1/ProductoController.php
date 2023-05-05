@@ -7,36 +7,17 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 
 
-/**
-* @OA\Info(
-*      version="1.0.0",
-*      title="Laravel OpenApi Documentation"
-* )
-*
-* @OA\Server(
-*      url="http://localhost:8000",
-*      description="API Server"
-* )
-*
-* @OA\Tag(
-*     name="Projects",
-*     description="API Endpoints of Projects"
-* )
-*/
-
-
 class ProductoController extends Controller
 {
-
-
     /**
     * @OA\Get(
-    *     path="/api/producto",
+    *     path="/rest/v1/productos",
+    *     tags={"productos"},
     *     summary="Mostrar todos los productos",
     *     description="Se retornan todos los productos",
     *     @OA\Response(
     *         response=200,
-    *         description="Mostrar todos los productos."
+    *         description="Operacion completada con exito."
     *     ),
     *     @OA\Response(
     *         response="default",
@@ -51,9 +32,10 @@ class ProductoController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/api/producto/{producto}",
+    *     path="/rest/v1/productos",
+    *     tags={"productos"},
     *     summary="Buscar un producto mediante un ID",
-    *     description="Retorna el producto que tenga la ID ingresada",
+    *     description="Retorna el producto con la ID ingresada",
     *     @OA\Parameter(
     *          name="id",
     *          description="ID del producto",
@@ -68,8 +50,12 @@ class ProductoController extends Controller
     *         description="Se devuelve el producto buscado"
     *     ),
     *     @OA\Response(
-    *         response="default",
-    *         description="Ha ocurrido un error."
+    *         response=400,
+    *         description="ID del producto invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el producto"
     *     )
     * )
     */

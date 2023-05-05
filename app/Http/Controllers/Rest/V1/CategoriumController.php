@@ -10,12 +10,13 @@ class CategoriumController extends Controller
 {
     /**
     * @OA\Get(
-    *     path="/api/categoria",
+    *     path="/rest/v1/categorias",
+    *     tags={"categorias"}
     *     summary="Mostrar todas las categorias",
     *     description="Se retornan todas las categorias",
     *     @OA\Response(
     *         response=200,
-    *         description="Se muestran todas las categorias"
+    *         description="Operacion completada con exito."
     *     ),
     *     @OA\Response(
     *         response="default",
@@ -30,7 +31,8 @@ class CategoriumController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/api/categoria/{categorium}",
+    *     path="/rest/v1/categorias/{categorium}",
+    *     tags={"categorias"}
     *     summary="Buscar una categoria mediante un ID",
     *     description="Retorna la categoria con la ID ingresada",
     *     @OA\Parameter(
@@ -47,8 +49,12 @@ class CategoriumController extends Controller
     *         description="Se devuelve la categoria buscada"
     *     ),
     *     @OA\Response(
-    *         response="default",
-    *         description="Ha ocurrido un error."
+    *         response=400,
+    *         description="ID de categoria invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro la categoria"
     *     )
     * )
     */

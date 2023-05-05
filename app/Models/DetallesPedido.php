@@ -19,6 +19,13 @@ class DetallesPedido extends Model
         'id_producto'
     ];
 
+    static $rules = [
+		'precio_total' => 'required',
+		'cantidad' => 'required',
+		'id_pedido' => 'required',
+        'id_producto' => 'required'
+    ];
+
     public function producto()
     {
         return $this->hasOne('App\Models\Producto', 'id', 'id_producto');
