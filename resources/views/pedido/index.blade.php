@@ -26,7 +26,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover text-center table-stripped" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+                            <table class="table table-hover text-center table-stripped" style="border-collapse: collapse; margin:5px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
                                 <thead class="thead">
                                     <tr style="background-color: #000000; color:#fff;">
 										<th>Fecha Pedido</th>
@@ -42,7 +42,7 @@
 											<td>{{ $pedid->precio }}</td>
 											<td>{{ $pedid->cliente->nombre }}</td>
                                             <td>
-                                                <a class="btn btn-sm bg-dark text-white" href="{{ route('pedido.show',$pedid->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Informacion de detalles') }}</a>
+                                                <a class="btn btn-sm bg-dark text-white" href="{{ route('pedido.show',$pedid->id) }}" style="border-radius: 5rem; width:9rem;"> {{ __('Detalles del pedido') }}</a>
                                             </td>
                                         </tr>
                                     @endforeach
