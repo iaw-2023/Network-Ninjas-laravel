@@ -51,8 +51,8 @@
                                         <tr>
                 							<td>{{ $categorium->nombre }}</td>
                                             <td>
-                                                <div class="d-flex justify-content-center" style="display:flex; justify-content:center; align-items:center;">
-                                                <form action="{{ route('categorium.destroy',$categorium->id) }}" style="display:flex; ">
+                                                <div class="d-flex justify-content-center" style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
+                                                <form action="{{ route('categorium.destroy',$categorium->id) }}" style="display:flex; flex-direction:column;">
                                                     <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem;" href="{{ route('categorium.show',$categorium->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
                                                     <a class="btn btn-sm text-white bg-dark" style="border-radius: 5rem; width:6rem;" href="{{ route('categorium.edit',$categorium->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                 </form>
