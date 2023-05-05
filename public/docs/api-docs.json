@@ -1,0 +1,247 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CarFects OpenApi",
+        "description": "CarFects OpenApi description",
+        "contact": {
+            "email": "darius@matulionis.lt"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/rest/v1/categorias": {
+            "get": {
+                "tags": [
+                    "categorias"
+                ],
+                "summary": "Mostrar todas las categorias",
+                "description": "Se retorna un arreglo de categorias",
+                "operationId": "indexCategorias",
+                "parameters": [
+                    {
+                        "name": "indice",
+                        "in": "path",
+                        "description": "Indice de la primera categoria, valor por defecto es 0",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "cantidad",
+                        "in": "path",
+                        "description": "Cantidad de categorias a devolver, valor por defecto es 10",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Categoria"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/v1/categorias/{categoriaId}": {
+            "get": {
+                "tags": [
+                    "categorias"
+                ],
+                "summary": "Busca una categoria por ID",
+                "description": "Retorna una sola categoria",
+                "operationId": "showCategoria",
+                "parameters": [
+                    {
+                        "name": "categoriaId",
+                        "in": "path",
+                        "description": "ID de la categoria a retornar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación completada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Categoria"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "ID inválido"
+                    },
+                    "404": {
+                        "description": "Categoria no encontrada"
+                    }
+                }
+            }
+        },
+        "/rest/v1/productos": {
+            "get": {
+                "tags": [
+                    "productos"
+                ],
+                "summary": "Obtiene una cantidad de productos desde un indice",
+                "description": "Retorna un arreglo de productos",
+                "operationId": "indexProductos",
+                "parameters": [
+                    {
+                        "name": "indice",
+                        "in": "path",
+                        "description": "Indice del primer producto, valor por defecto es 0",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "cantidad",
+                        "in": "path",
+                        "description": "Cantidad de producto a devolver, valor por defecto es 10",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Producto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/v1/productos/{productoId}": {
+            "get": {
+                "tags": [
+                    "productos"
+                ],
+                "summary": "Busca un producto por ID",
+                "description": "Retorna un solo producto",
+                "operationId": "showProducto",
+                "parameters": [
+                    {
+                        "name": "productoId",
+                        "in": "path",
+                        "description": "ID del producto a retornar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación completada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Producto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "ID inválido"
+                    },
+                    "404": {
+                        "description": "Producto no encontrado"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Producto": {
+                "title": "Producto",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "id_categoria": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "precio": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Categoria": {
+                "title": "Categoria",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "DetallesPedido": {
+                "title": "DetallesPedido",
+                "properties": {
+                    "precio_total": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "cantidad": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "id_pedido": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "id_producto": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

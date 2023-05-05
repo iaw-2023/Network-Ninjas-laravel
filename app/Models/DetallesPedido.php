@@ -12,6 +12,13 @@ class DetallesPedido extends Model
 
     protected $table = 'detalles_pedido';
 
+    static $rules = [
+		'precio_total' => 'required',
+		'cantidad' => 'required',
+		'id_pedido' => 'required',
+		'id_producto' => 'required',
+    ];
+
     protected $fillable = [
         'precio_total',
         'cantidad',
