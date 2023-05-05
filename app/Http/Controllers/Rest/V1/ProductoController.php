@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
@@ -49,17 +49,6 @@ class ProductoController extends Controller
         return Producto::orderBy('id','asc')->get();
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-
-        //
-    }
-
     /**
     * @OA\Get(
     *     path="/api/producto/{producto}",
@@ -89,18 +78,4 @@ class ProductoController extends Controller
         return Producto::find($id);
     }
 
-    public function edit($id)
-    {
-       //
-    }
-
-    public function update(Request $request, Producto $producto)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

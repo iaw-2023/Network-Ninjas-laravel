@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pedido;
@@ -27,7 +27,7 @@ class PedidoController extends Controller
     */
     public function index()
     {
-        return Pedido::orderBy('id', 'asc')->simplePaginate(Controller::$RESULT_PAGINATION);
+        return Pedido::orderBy('id', 'asc')->simplePaginate(Controller::$PAGINATION);
     }
 
     /**

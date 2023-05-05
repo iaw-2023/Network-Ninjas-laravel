@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categorium;
@@ -26,16 +26,6 @@ class CategoriumController extends Controller
     public function index()
     {
         return Categorium::orderBy('id','asc')->get();
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -67,18 +57,4 @@ class CategoriumController extends Controller
         return Categorium::find($id);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, Categorium $categorium)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }
