@@ -30,4 +30,4 @@ Route::middleware('auth', 'verified')->group(function(){
     Route::resource('pedido',PedidoController::class);
 });
 
-Route::resource('rest/documentation',PedidoController::class);
+
