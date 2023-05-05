@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\REST\V1;
 
 use App\Models\Pedido;
 use App\Http\Controllers\Controller;

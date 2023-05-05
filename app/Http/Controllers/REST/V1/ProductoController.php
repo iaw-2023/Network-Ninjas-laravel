@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\REST\V1;
 
-use App\Models\Categorium;
+use App\Models\Producto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\V1\CategoriumCollection;
-use App\Http\Resources\V1\CategoriumResource;
+use App\Http\Resources\V1\ProductoCollection;
+use App\Http\Resources\V1\ProductoResource;
 
-class CategoriumController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return new CategoriumCollection(Categorium::paginate());
+        return new ProductoCollection(Producto::paginate());
     }
 
     /**
@@ -29,15 +29,15 @@ class CategoriumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Categorium $categorium)
+    public function show(Producto $producto)
     {
-        return new CategoriumResource($categorium);
+        return new ProductoResource($producto);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categorium $categorium)
+    public function update(Request $request, Producto $producto)
     {
         //
     }
@@ -45,7 +45,7 @@ class CategoriumController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categorium $categorium)
+    public function destroy(Producto $producto)
     {
         //
     }
