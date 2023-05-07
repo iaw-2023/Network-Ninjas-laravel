@@ -27,7 +27,7 @@ class ProductoController extends Controller
     */
     public function index()
     {
-        $productos = Producto::all();
+        $productos = Producto::orderBy('id','asc')->get();
         $productos->setHidden(['created_at','updated_at']);
         return response()->json($productos);
     }

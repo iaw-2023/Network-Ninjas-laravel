@@ -26,7 +26,7 @@ class CategoriumController extends Controller
     */
     public function index()
     {
-        $categorias = Categorium::all();
+        $categorias = Categorium::orderBy('id','asc')->get();
         $categorias->setHidden(['created_at','updated_at']);
         return response()->json($categorias);
     }
