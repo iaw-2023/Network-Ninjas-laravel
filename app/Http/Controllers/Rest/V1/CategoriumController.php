@@ -69,8 +69,9 @@ class CategoriumController extends Controller
         $categoria= Categorium::find($id);
         if($categoria){
             $categoria->setHidden(['created_at','updated_at']);
+            return response()->json($categoria);
         }
-        return response()->json($categoria);
+        return response()->json(array('status'=>'error','msg'=>'ID de categoria invalido'),400);
     }
 
 }
