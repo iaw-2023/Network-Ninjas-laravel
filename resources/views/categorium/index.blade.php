@@ -42,6 +42,7 @@
                             <table class="table table-hover text-center table-stripped" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
                                 <thead class="thead">
                                     <tr style="background-color: #000000; color:#fff;">
+                                        <th>ID</th>
 										<th>Nombre</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -49,6 +50,7 @@
                                 <tbody>
                                     @foreach ($categoria as $categorium)
                                         <tr>
+                                            <td>{{ $categorium->id }}</td>
                 							<td>{{ $categorium->nombre }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center" style="display:flex; justify-content:center; align-items:center; flex-direction:column;">

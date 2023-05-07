@@ -41,6 +41,7 @@
                             <table class="table table-striped table-hover text-center" style="border-collapse: collapse; margin:25px 0; font-size:0.9em; min-width:400px; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
                                 <thead>
                                     <tr style="background-color: #000000; color:#fff;">
+                                        <th>ID</th>
 										<th>Nombre</th>
 										<th>Precio</th>
 										<th>Imagen</th>
@@ -51,6 +52,7 @@
                                 <tbody>
                                     @foreach ($producto as $product)
                                         <tr>
+                                            <td>{{ $product->id }}</td>
 											<td>{{ $product->nombre }}</td>
 											<td>{{ $product->precio }}</td>
 											<td><img style="height:150px; width:250px;" src="{{ $product->img }}"></td>
