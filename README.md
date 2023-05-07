@@ -2,7 +2,7 @@
 
 Creamos el backend de una aplicacion web que permite las siguientes operaciones sobre las siguientes entidades:
 
-#### Productos
+### Productos
 - Ver los productos disponibles junto con su informacion
 - Editar la información de cualquier producto
 - Borrar cualquier producto siempre y cuando no este asociado a algun pedido existente
