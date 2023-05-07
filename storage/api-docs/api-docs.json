@@ -113,7 +113,31 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Pedido"
+                                "required": [
+                                    "id",
+                                    "fecha_pedido",
+                                    "precio",
+                                    "id_cliente"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "fecha_pedido": {
+                                        "type": "string",
+                                        "example": "2023-05-02"
+                                    },
+                                    "precio": {
+                                        "type": "integer",
+                                        "example": "203000"
+                                    },
+                                    "id_cliente": {
+                                        "type": "integer",
+                                        "example": "2"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }

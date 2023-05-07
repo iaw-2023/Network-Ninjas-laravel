@@ -15,9 +15,15 @@ class PedidoController extends Controller
      *      path="/rest/v1/pedidos",
      *      tags={"pedidos"},
      *      @OA\RequestBody(
-     *          @OA\JsonContent(ref="#/components/schemas/Pedido"),
      *          required=true,
-     *          description="El pedido que se va a crear"
+     *          description="El pedido que se va a crear",
+     *          @OA\JsonContent(
+     *              required={"id","fecha_pedido","precio","id_cliente"},
+     *              @OA\Property(property="id",type="integer", example="1"),
+     *              @OA\Property(property="fecha_pedido",type="string", example="2023-05-02"),
+     *              @OA\Property(property="precio",type="integer", example="203000"),
+     *              @OA\Property(property="id_cliente",type="integer", example="2")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=201,
