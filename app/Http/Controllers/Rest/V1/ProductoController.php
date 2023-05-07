@@ -70,6 +70,7 @@ class ProductoController extends Controller
         $producto = Producto::find($id);
         $producto->setHidden(['created_at','updated_at']);
         return response()->json($producto);
+
     }
 
 }
