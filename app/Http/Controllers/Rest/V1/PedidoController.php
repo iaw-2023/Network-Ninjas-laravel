@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pedido;
+use App\Models\Cliente;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,13 @@ class PedidoController extends Controller
     {
         request()->validate(Pedido::$rules);
 
-        return Pedido::create($request->all());
+        $cliente  = Cliente::find($request->get('id_cliente'));
+            if($cliente){
+                return Pedido::create($request->all());
+            }
+            else{
+                return response()->json(array('status'=>'error','msg'=>'ID de cliente invalido'),400);
+            }
     }
 
 }

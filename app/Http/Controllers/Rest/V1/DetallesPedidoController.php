@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Rest\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pedido;
+use App\Models\Producto;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,13 @@ class DetallesPedidoController extends Controller
 
         $pedido  = Pedido::find($request->get('id_pedido'));
         if($pedido){
-            return DetallesPedido::create($request->all());
+            $producto  = Producto::find($request->get('id_producto'));
+            if($producto){
+                return DetallesPedido::create($request->all());
+            }
+            else{
+                return response()->json(array('status'=>'error','msg'=>'ID de producto invalido'),400);
+            }
         }
         else {
             return response()->json(array('status'=>'error','msg'=>'ID de pedido invalido'),400);
