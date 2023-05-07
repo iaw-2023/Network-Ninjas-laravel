@@ -17,9 +17,16 @@ class DetallesPedidoController extends Controller
      *      summary="Guardar un detalle de un pedido",
      *      description="Se almacena un nuevo detalle de un pedido",
      *      @OA\RequestBody(
-     *          @OA\JsonContent(ref="#/components/schemas/DetallesPedido"),
      *          required=true,
-     *          description="El detalle que se va a crear"
+     *          description="El detalle que se va a crear",
+     *          @OA\JsonContent(
+     *              required={"id","precio_total","cantidad","id_pedido","id_producto"},
+     *              @OA\Property(property="id",type="integer", example="1"),
+     *              @OA\Property(property="precio_total",type="integer", example="200000"),
+     *              @OA\Property(property="cantidad",type="integer", example="3"),
+     *              @OA\Property(property="id_pedido",type="integer", example="2"),
+     *              @OA\Property(property="id_producto",type="integer", example="1")
+     *          )
      *      ),
      *      @OA\Response(
      *          response=201,
