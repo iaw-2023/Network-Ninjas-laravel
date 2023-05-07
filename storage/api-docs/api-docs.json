@@ -59,9 +59,6 @@
                     },
                     "404": {
                         "description": "No se encontro la categoria"
-                    },
-                    "500": {
-                        "description": "No se encontro la categoria"
                     }
                 }
             }
@@ -238,9 +235,6 @@
                         "description": "ID del producto invalido"
                     },
                     "404": {
-                        "description": "No se encontro el producto"
-                    },
-                    "500": {
                         "description": "No se encontro el producto"
                     }
                 }

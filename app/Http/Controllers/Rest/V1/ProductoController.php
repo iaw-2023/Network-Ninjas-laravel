@@ -58,18 +58,17 @@ class ProductoController extends Controller
     *     @OA\Response(
     *         response=404,
     *         description="No se encontro el producto"
-    *     ),
-    *     @OA\Response(
-    *         response=500,
-    *         description="No se encontro el producto"
     *     )
     * )
     */
     public function show($id)
     {
         $producto = Producto::find($id);
-        $producto->setHidden(['created_at','updated_at']);
-        return response()->json($producto);
+        if($producto){
+            $producto->setHidden(['created_at','updated_at']);
+            return response()->json($producto);
+        }
+        return response()->json(array('status'=>'error','msg'=>'ID de producto invalido'),400);
 
     }
 

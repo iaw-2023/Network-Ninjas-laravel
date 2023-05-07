@@ -57,10 +57,6 @@ class CategoriumController extends Controller
     *     @OA\Response(
     *         response=404,
     *         description="No se encontro la categoria"
-    *     ),
-    *     @OA\Response(
-    *         response=500,
-    *         description="No se encontro la categoria"
     *     )
     * )
     */
