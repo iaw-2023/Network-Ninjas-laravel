@@ -26,12 +26,14 @@ class CategoriumController extends Controller
     */
     public function index()
     {
-        return Categorium::orderBy('id','asc')->get();
+        $categorias = Categorium::all();
+        $categorias->setHidden(['created_at','updated_at']);
+        return response()->json($categorias);
     }
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/categorias/{categorium}",
+    *     path="/rest/v1/categorias/{id}",
     *     tags={"categorias"},
     *     summary="Buscar una categoria mediante un ID",
     *     description="Retorna la categoria con la ID ingresada",
@@ -60,7 +62,9 @@ class CategoriumController extends Controller
     */
     public function show($id)
     {
-        return Categorium::find($id);
+        $categoria= Categorium::find($id);
+        $categoria->setHidden(['created_at','updated_at']);
+        return response()->json($categoria);
     }
 
 }

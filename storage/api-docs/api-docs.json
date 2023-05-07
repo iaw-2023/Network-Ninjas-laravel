@@ -31,14 +31,14 @@
                 }
             }
         },
-        "/rest/v1/categorias/{categorium}": {
+        "/rest/v1/categorias/{id}": {
             "get": {
                 "tags": [
                     "categorias"
                 ],
                 "summary": "Buscar una categoria mediante un ID",
                 "description": "Retorna la categoria con la ID ingresada",
-                "operationId": "599634a1a7c3d8447811c3686a3eb1e2",
+                "operationId": "d2b6d9e03001343a99b60686045f77a0",
                 "parameters": [
                     {
                         "name": "id",
@@ -72,7 +72,15 @@
                 "description": "Se almacena un nuevo detalle de un pedido",
                 "operationId": "193a7cf77104a51ea157d97f7ebe050b",
                 "requestBody": {
-                    "required": true
+                    "description": "El detalle que se va a crear",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DetallesPedido"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "201": {
@@ -100,7 +108,15 @@
                 ],
                 "operationId": "66ba1aa467332b07c04505e382271815",
                 "requestBody": {
-                    "required": true
+                    "description": "El pedido que se va a crear",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pedido"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "201": {
@@ -139,14 +155,14 @@
                 }
             }
         },
-        "/rest/v1/productos/{producto}": {
+        "/rest/v1/productos/{id}": {
             "get": {
                 "tags": [
                     "productos"
                 ],
                 "summary": "Buscar un producto mediante un ID",
                 "description": "Retorna el producto con la ID ingresada",
-                "operationId": "5f01f359b0dd0713d5ece8e912d16f74",
+                "operationId": "72cbddf3907e785bacca5f2d23220af8",
                 "parameters": [
                     {
                         "name": "id",

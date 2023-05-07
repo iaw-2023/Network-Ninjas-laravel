@@ -17,7 +17,9 @@ class DetallesPedidoController extends Controller
      *      summary="Guardar un detalle de un pedido",
      *      description="Se almacena un nuevo detalle de un pedido",
      *      @OA\RequestBody(
+     *          @OA\JsonContent(ref="#/components/schemas/DetallesPedido"),
      *          required=true,
+     *          description="El detalle que se va a crear"
      *      ),
      *      @OA\Response(
      *          response=201,

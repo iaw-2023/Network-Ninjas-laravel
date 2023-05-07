@@ -32,7 +32,7 @@ class ProductoController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/productos/{producto}",
+    *     path="/rest/v1/productos/{id}",
     *     tags={"productos"},
     *     summary="Buscar un producto mediante un ID",
     *     description="Retorna el producto con la ID ingresada",

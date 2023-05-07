@@ -15,7 +15,9 @@ class PedidoController extends Controller
      *      path="/rest/v1/pedidos",
      *      tags={"pedidos"},
      *      @OA\RequestBody(
+     *          @OA\JsonContent(ref="#/components/schemas/Pedido"),
      *          required=true,
+     *          description="El pedido que se va a crear"
      *      ),
      *      @OA\Response(
      *          response=201,
