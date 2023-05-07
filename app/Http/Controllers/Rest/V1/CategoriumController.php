@@ -67,7 +67,9 @@ class CategoriumController extends Controller
     public function show($id)
     {
         $categoria= Categorium::find($id);
-        $categoria->setHidden(['created_at','updated_at']);
+        if($categoria){
+            $categoria->setHidden(['created_at','updated_at']);
+        }
         return response()->json($categoria);
     }
 
