@@ -63,7 +63,6 @@ class DetallesPedidoController extends Controller
             return response()->json(array('status'=>'error','msg'=>'ID de pedido invalido'),400);
         }
 
-
     }
 
 }
