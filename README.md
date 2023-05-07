@@ -18,8 +18,8 @@ Creamos el backend de una aplicacion web que permite las siguientes operaciones 
 - Ver los pedidos realizados junto a su informacion, pudiendo ver tambien los detalles de los mismos
 
 
-### Formas de probar la ap
-Puede probarse de dos formas, una es utilizar Postman y colocar alguna de las URL provistas y obtiene la información, otra es simplemente buscar la URL en el navegador y obtiene los datos. Tambien puede probarse accediendo a la opcion de Try de la pagina de la documentacion de la api.
+### Formas de probar la api
+Puede probarse de dos formas, una es utilizar Postman y colocar alguna de las URL provistas y obtiene la información, otra es simplemente buscar la URL en el navegador y obtiene los datos. Tambien puede probarse accediendo a la opcion de Try de la pagina de la documentacion de la api. Para probar fallos en la api en la opcion de Try de la documentacion de swagger puede, por ejemplo, al probar la creacion de un detalle ingresar un "id_pedido" invalido, lo mismo al probar metodos get quee buscan por id, puede probarse ingresando ids incorrectos. La informacion restante de la api esta en su documentacion, no la incluimos para evitar redundancia.
 
 ### Librerias utilizadas
 - L5-Swagger
@@ -40,6 +40,7 @@ Puede probarse de dos formas, una es utilizar Postman y colocar alguna de las UR
 - Productos disponibles por medio de la api en vercel:  https://network-ninjas-laravel-dwfy.vercel.app/rest/v1/productos
 - Categorias disponibles por medio de la api en vercel: https://network-ninjas-laravel-dwfy.vercel.app/rest/v1/categorias
 
+#### Aclaracion: como se ve arriba, al consultar productos o categorias por medio de api estos se encontraran en las rutas rest/v1/...
 
 ## Idea a implementar
 
