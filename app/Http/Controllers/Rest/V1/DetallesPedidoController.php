@@ -54,7 +54,7 @@ class DetallesPedidoController extends Controller
     {
         request()->validate(DetallesPedido::$rules);
 
-        $pedido = Pedido::where('id', $request->get('id_pedido'));
+        $pedido  = Pedido::find($request->get('id_pedido'));
         if($pedido){
             return DetallesPedido::create($request->all());
         }
