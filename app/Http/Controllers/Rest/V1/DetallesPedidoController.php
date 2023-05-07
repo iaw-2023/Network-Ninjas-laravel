@@ -59,7 +59,6 @@ class DetallesPedidoController extends Controller
             return DetallesPedido::create($request->all());
         }
         else {
-            DetallesPedido::create($request->all());
             return response()->json(array('status'=>'error','msg'=>'ID de pedido invalido'),400);
         }
 
