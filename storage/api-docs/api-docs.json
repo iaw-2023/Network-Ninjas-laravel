@@ -239,6 +239,70 @@
                     }
                 }
             }
+        },
+        "/rest/v1/productos/{name}": {
+            "get": {
+                "tags": [
+                    "productos"
+                ],
+                "summary": "Buscar un producto mediante un nombre",
+                "description": "Retorna el producto con el nombre ingresado",
+                "operationId": "a737942331dfd6973ae69efd8ab03b3c",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "nombre del producto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve el producto buscado"
+                    },
+                    "400": {
+                        "description": "nombre del producto invalido"
+                    },
+                    "404": {
+                        "description": "No se encontro el producto"
+                    }
+                }
+            }
+        },
+        "/rest/v1/productos/{category}": {
+            "get": {
+                "tags": [
+                    "productos"
+                ],
+                "summary": "Busca productos por su categoria",
+                "description": "Retorna el o los productos pertenecientes a la categoria ingresada",
+                "operationId": "6e0fa6057ceba66963bc84034972c010",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "nombre de la categoria de la que se buscaran productos",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven los productos de la categoria"
+                    },
+                    "400": {
+                        "description": "categoria de productos invalida"
+                    },
+                    "404": {
+                        "description": "No se encontraron productos con esa categoria"
+                    }
+                }
+            }
         }
     },
     "components": {

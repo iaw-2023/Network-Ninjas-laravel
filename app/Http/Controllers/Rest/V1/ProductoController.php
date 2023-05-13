@@ -72,4 +72,78 @@ class ProductoController extends Controller
 
     }
 
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/productos/{name}",
+    *     tags={"productos"},
+    *     summary="Buscar un producto mediante un nombre",
+    *     description="Retorna el producto con el nombre ingresado",
+    *     @OA\Parameter(
+    *          name="name",
+    *          description="nombre del producto",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelve el producto buscado"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="nombre del producto invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el producto"
+    *     )
+    * )
+    */
+    public function searchByName($name){
+        $productos = Producto::where('nombre', 'ilike', '%' . $name . '%')->select('id','nombre','precio','img')->get();
+        if(!$productos){
+            $productos = Producto::all();
+        }
+        return response()->json($productos);
+    }
+
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/productos/{category}",
+    *     tags={"productos"},
+    *     summary="Busca productos por su categoria",
+    *     description="Retorna el o los productos pertenecientes a la categoria ingresada",
+    *     @OA\Parameter(
+    *          name="name",
+    *          description="nombre de la categoria de la que se buscaran productos",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelven los productos de la categoria"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="categoria de productos invalida"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontraron productos con esa categoria"
+    *     )
+    * )
+    */
+    public function searchByCategory($category){
+        $productos = Producto::whereHas('categoria', function($query) use ($category){
+            $query->where('id',$category);
+        })->select('id','nombre','precio','img')->get();
+
+        return response()->json($productos);
+    }
+
 }
