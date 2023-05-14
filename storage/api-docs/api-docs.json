@@ -240,17 +240,17 @@
                 }
             }
         },
-        "/rest/v1/productos/{name}": {
+        "/rest/v1/productos/search/{nombre}": {
             "get": {
                 "tags": [
                     "productos"
                 ],
                 "summary": "Buscar un producto mediante un nombre",
                 "description": "Retorna el producto con el nombre ingresado",
-                "operationId": "a737942331dfd6973ae69efd8ab03b3c",
+                "operationId": "c15567858d9ce068344feb507f012878",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "nombre",
                         "in": "path",
                         "description": "nombre del producto",
                         "required": true,
