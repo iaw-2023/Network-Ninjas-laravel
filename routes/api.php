@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Rest\V1\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::apiresource('categorias',CategoriumController::class);
     Route::apiresource('pedidos',PedidoController::class);
     Route::apiresource('detalles',DetallesPedidoController::class);
+    Route::get('/productos/search/{name}', [ProductoController::class, 'searchByName']);
 });
 
 
