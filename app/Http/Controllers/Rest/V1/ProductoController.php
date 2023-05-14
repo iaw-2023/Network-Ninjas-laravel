@@ -74,12 +74,12 @@ class ProductoController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/productos/{name}",
+    *     path="/rest/v1/productos/search/{name}",
     *     tags={"productos"},
     *     summary="Buscar un producto mediante un nombre",
     *     description="Retorna el producto con el nombre ingresado",
     *     @OA\Parameter(
-    *          name="name",
+    *          name="nombre",
     *          description="nombre del producto",
     *          required=true,
     *          in="path",
@@ -101,11 +101,9 @@ class ProductoController extends Controller
     *     )
     * )
     */
-    public function searchByName($name){
-        $productos = Producto::where('nombre', 'LIKE', '%' . $name . '%');
-        if(!$productos){
-            $productos = Producto::all();
-        }
+    public function searchByName($nombre){
+        $productos = Producto::where('nombre', 'LIKE', '%' . $nombre . '%')->select('id','nombre','precio','img')->get();
+
         return response()->json($productos);
     }
 
