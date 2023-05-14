@@ -25,6 +25,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::apiresource('pedidos',PedidoController::class);
     Route::apiresource('detalles',DetallesPedidoController::class);
     Route::get('/productos/search/{nombre}', [ProductoController::class, 'searchByName']);
+    Route::get('/productos/search/categoria/{id_categoria}', [ProductoController::class, 'searchByCategory']);
 });
 
 

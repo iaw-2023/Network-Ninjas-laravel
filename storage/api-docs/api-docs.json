@@ -272,19 +272,19 @@
                 }
             }
         },
-        "/rest/v1/productos/{category}": {
+        "/rest/v1/productos/search/categoria/{id_categoria}": {
             "get": {
                 "tags": [
                     "productos"
                 ],
                 "summary": "Busca productos por su categoria",
                 "description": "Retorna el o los productos pertenecientes a la categoria ingresada",
-                "operationId": "6e0fa6057ceba66963bc84034972c010",
+                "operationId": "3e201e6616c17f7dba2f3f2b92c50bac",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "id_categoria",
                         "in": "path",
-                        "description": "nombre de la categoria de la que se buscaran productos",
+                        "description": "id de la categoria de la que se buscaran productos",
                         "required": true,
                         "schema": {
                             "type": "integer"

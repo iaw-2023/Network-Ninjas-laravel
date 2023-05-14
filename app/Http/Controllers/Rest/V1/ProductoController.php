@@ -110,13 +110,13 @@ class ProductoController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/productos/{category}",
+    *     path="/rest/v1/productos/search/categoria/{id_categoria}",
     *     tags={"productos"},
     *     summary="Busca productos por su categoria",
     *     description="Retorna el o los productos pertenecientes a la categoria ingresada",
     *     @OA\Parameter(
-    *          name="name",
-    *          description="nombre de la categoria de la que se buscaran productos",
+    *          name="id_categoria",
+    *          description="id de la categoria de la que se buscaran productos",
     *          required=true,
     *          in="path",
     *          @OA\Schema(
