@@ -74,7 +74,7 @@ class ProductoController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/productos/search/{name}",
+    *     path="/rest/v1/productos/search/{nombre}",
     *     tags={"productos"},
     *     summary="Buscar un producto mediante un nombre",
     *     description="Retorna el producto con el nombre ingresado",
