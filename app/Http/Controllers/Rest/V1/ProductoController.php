@@ -105,7 +105,6 @@ class ProductoController extends Controller
         $productos = Producto::where('nombre', 'LIKE', '%' . $nombre . '%')->select('id','nombre','precio','img')->get();
 
         return response()->json($productos);
-
     }
 
     /**
