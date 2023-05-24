@@ -55,7 +55,7 @@
                                             <td>{{ $product->id }}</td>
 											<td>{{ $product->nombre }}</td>
 											<td>{{ $product->precio }}</td>
-											<td><img style="height:150px; width:250px;" src="{{ $product->img }}"></td>
+											<td><img style="height:150px; width:250px;" src="{{ $product->img }}" onerror="this.onerror=null;this.src='{{ asset('img/defaultCar.jpg') }}';"></td>
 											<td> {{$product->categoria->nombre}}
                                             </td>
 

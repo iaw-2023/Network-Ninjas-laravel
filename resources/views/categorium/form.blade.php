@@ -3,7 +3,7 @@
 
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('nombre', $categorium->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'required', 'maxlength=50']) }}
+            {{ Form::text('nombre', $categorium->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'required', 'maxlength=50', 'pattern'=>'([A-Z]{1})([a-z]+)(\s([A-Z]|[a-z])+)*', 'maxlength=50', 'title'=>'Debe comenzar con una letra mayuscula, seguido de al menos una minuscula, y alguna combinacion de letras y espacios.']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
