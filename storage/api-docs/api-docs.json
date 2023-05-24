@@ -63,6 +63,56 @@
                 }
             }
         },
+        "/rest/v1/clientes": {
+            "get": {
+                "tags": [
+                    "clientes"
+                ],
+                "summary": "Mostrar todos los clientes",
+                "description": "Se retornan todos los clientes",
+                "operationId": "fcedc0911f55737f8d432d9decbeb387",
+                "responses": {
+                    "200": {
+                        "description": "Operacion completada con exito."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/rest/v1/clientes/{id}": {
+            "get": {
+                "tags": [
+                    "clientes"
+                ],
+                "summary": "Buscar un cliente mediante un ID",
+                "description": "Retorna el cliente con la ID ingresada",
+                "operationId": "b7e40a73ca9d5d0c4e957240a884adbb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve el cliente buscada"
+                    },
+                    "400": {
+                        "description": "ID de cliente invalido"
+                    },
+                    "404": {
+                        "description": "No se encontro el cliente"
+                    }
+                }
+            }
+        },
         "/rest/v1/detalles": {
             "post": {
                 "tags": [

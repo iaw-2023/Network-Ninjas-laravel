@@ -23,6 +23,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::apiresource('categorias',CategoriumController::class);
     Route::apiresource('pedidos',PedidoController::class);
     Route::apiresource('detalles',DetallesPedidoController::class);
+    Route::apiresource('clientes',ClienteController::class);
 });
 
 
