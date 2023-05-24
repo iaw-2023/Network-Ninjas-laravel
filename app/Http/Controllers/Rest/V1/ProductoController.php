@@ -102,7 +102,7 @@ class ProductoController extends Controller
     * )
     */
     public function searchByName($nombre){
-        $productos = Producto::where('nombre', 'iLIKE', '%' . $nombre . '%')->select('id','nombre','precio','img','id_categoria')->get();
+        $productos = Producto::where('nombre', 'LIKE', '%' . $nombre . '%')->select('id','nombre','precio','img','id_categoria')->get();
 
         return response()->json($productos);
     }
