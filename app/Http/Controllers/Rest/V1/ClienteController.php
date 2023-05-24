@@ -75,4 +75,39 @@ class ClienteController extends Controller
         }
         return response()->json(array('status'=>'error','msg'=>'ID de cliente invalido'),400);
     }
+
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/clientes/search/{nombre}",
+    *     tags={"clientes"},
+    *     summary="Buscar un cliemte mediante un nombre",
+    *     description="Retorna el cliente con el nombre ingresado",
+    *     @OA\Parameter(
+    *          name="nombre",
+    *          description="nombre del cliente",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelve el cliente buscado"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="nombre del cliente invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el cliente"
+    *     )
+    * )
+    */
+    public function searchByName($nombre){
+        $cliente = Cliente::where('nombre', 'iLIKE', '%' . $nombre . '%')->select('id','nombre','email')->get();
+
+        return response()->json($cliente);
+    }
 }
