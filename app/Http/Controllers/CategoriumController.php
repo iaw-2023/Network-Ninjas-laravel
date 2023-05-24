@@ -26,8 +26,7 @@ class CategoriumController extends Controller
     public function index()
     {
         $categoria = Categorium::orderBy('id','asc')->get();
-        return view('categorium.index')
-        ->with('categoria',$categoria);
+        return view('categorium.index')->with('categoria',$categoria);
     }
 
     /**

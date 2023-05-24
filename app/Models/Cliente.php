@@ -2,21 +2,49 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pedido;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Cliente
+ *
+ * @property $id
+ * @property $nombre
+ * @property $email
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property Pedido[] $pedidos
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Cliente extends Model
 {
-    use HasFactory;
+    
+  protected $table = 'cliente';
 
-    protected $table = 'cliente';
-
-    protected $fillable = [
-        'nombre',
-        'email'
+    static $rules = [
+		'nombre' => 'required',
+		'email' => 'required',
     ];
 
-    public function pedidos(){
-        return $this->hasMany(Pedido::class);
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nombre','email'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pedidos()
+    {
+        return $this->hasMany('App\Pedido', 'id_cliente', 'id');
     }
+    
+
 }

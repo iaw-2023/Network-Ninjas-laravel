@@ -51,6 +51,7 @@
                         <a class="nav-link" href="{{route('producto.index')}}">Productos</a>
                         <a class="nav-link"  href="{{route('categorium.index')}}">Categorias</a>
                         <a class="nav-link"  href="{{route('pedido.index')}}">Pedidos</a>
+                        <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
                         @endAuth
                     </ul>
 
