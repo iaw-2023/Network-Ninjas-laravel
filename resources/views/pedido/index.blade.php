@@ -50,6 +50,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{$pedido->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
