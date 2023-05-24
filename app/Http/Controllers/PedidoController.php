@@ -25,7 +25,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $pedido = Pedido::orderBy('id', 'asc');
+        $pedido = Pedido::orderBy('id', 'asc')->simplePaginate(Controller::$PAGINATION);
 
         return view('pedido.index')->with('pedido', $pedido);
     }
