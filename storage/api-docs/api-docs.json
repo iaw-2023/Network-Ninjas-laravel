@@ -113,6 +113,38 @@
                 }
             }
         },
+        "/rest/v1/clientes/search/{nombre}": {
+            "get": {
+                "tags": [
+                    "clientes"
+                ],
+                "summary": "Buscar un cliemte mediante un nombre",
+                "description": "Retorna el cliente con el nombre ingresado",
+                "operationId": "3797ca3056f7ad959cacf079b5405078",
+                "parameters": [
+                    {
+                        "name": "nombre",
+                        "in": "path",
+                        "description": "nombre del cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelve el cliente buscado"
+                    },
+                    "400": {
+                        "description": "nombre del cliente invalido"
+                    },
+                    "404": {
+                        "description": "No se encontro el cliente"
+                    }
+                }
+            }
+        },
         "/rest/v1/detalles": {
             "post": {
                 "tags": [
