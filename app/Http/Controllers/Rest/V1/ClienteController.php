@@ -102,7 +102,7 @@ class ClienteController extends Controller
     * )
     */
     public function searchByName($nombre){
-        $cliente = Cliente::where('nombre', 'LIKE', '%' . $nombre . '%')->select('id','nombre','email')->get();
+        $cliente = Cliente::where('nombre', 'iLIKE', '%' . $nombre . '%')->select('id','nombre','email')->get();
 
         return response()->json($cliente);
     }
