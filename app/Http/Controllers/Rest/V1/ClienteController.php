@@ -73,6 +73,49 @@ class ClienteController extends Controller
     }
 
     /**
+     * @OA\Post(
+     *      path="/rest/v1/clientes",
+     *      tags={"clientes"},
+     *      @OA\RequestBody(
+     *          required=true,
+     *          description="El cliente que se va a crear",
+     *          @OA\JsonContent(
+     *              required={"id","nombre","email"},
+     *              @OA\Property(property="id",type="integer", example="1"),
+     *              @OA\Property(property="nombre",type="string", example="Carlos"),
+     *              @OA\Property(property="email",type="string", example="carlos@gmail.com")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Cliente creado correctamente"
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Solicitud incorrecta"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="No autenticado"
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Prohibido"
+     *      ),
+     *      @OA\Response(
+     *          response=405,
+     *          description="Entrada invalida"
+     *      )
+     * )
+     */
+    public function store(Request $request)
+    {
+        request()->validate(Cliente::$rules);
+
+        return Cliente::create($request->all());
+    }
+
+    /**
     * @OA\Get(
     *     path="/rest/v1/clientes/search/{email}",
     *     tags={"clientes"},

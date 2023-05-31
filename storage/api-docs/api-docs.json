@@ -79,6 +79,59 @@
                         "description": "Ha ocurrido un error."
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "clientes"
+                ],
+                "operationId": "a7dbca0d6cca123a523f16b8e26cecb8",
+                "requestBody": {
+                    "description": "El cliente que se va a crear",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "nombre",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Carlos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "carlos@gmail.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cliente creado correctamente"
+                    },
+                    "400": {
+                        "description": "Solicitud incorrecta"
+                    },
+                    "401": {
+                        "description": "No autenticado"
+                    },
+                    "403": {
+                        "description": "Prohibido"
+                    },
+                    "405": {
+                        "description": "Entrada invalida"
+                    }
+                }
             }
         },
         "/rest/v1/clientes/{id}": {
