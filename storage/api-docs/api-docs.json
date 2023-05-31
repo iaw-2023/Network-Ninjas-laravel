@@ -113,19 +113,19 @@
                 }
             }
         },
-        "/rest/v1/clientes/search/{nombre}": {
+        "/rest/v1/clientes/search/{email}": {
             "get": {
                 "tags": [
                     "clientes"
                 ],
-                "summary": "Buscar un cliemte mediante un nombre",
-                "description": "Retorna el cliente con el nombre ingresado",
-                "operationId": "3797ca3056f7ad959cacf079b5405078",
+                "summary": "Buscar un cliemte mediante un email",
+                "description": "Retorna el cliente con el email ingresado",
+                "operationId": "f33a7ce4836ceb605386b4bd0b454f62",
                 "parameters": [
                     {
-                        "name": "nombre",
+                        "name": "email",
                         "in": "path",
-                        "description": "nombre del cliente",
+                        "description": "email del cliente",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -137,7 +137,7 @@
                         "description": "Se devuelve el cliente buscado"
                     },
                     "400": {
-                        "description": "nombre del cliente invalido"
+                        "description": "email del cliente invalido"
                     },
                     "404": {
                         "description": "No se encontro el cliente"

@@ -74,13 +74,13 @@ class ClienteController extends Controller
 
     /**
     * @OA\Get(
-    *     path="/rest/v1/clientes/search/{nombre}",
+    *     path="/rest/v1/clientes/search/{email}",
     *     tags={"clientes"},
-    *     summary="Buscar un cliemte mediante un nombre",
-    *     description="Retorna el cliente con el nombre ingresado",
+    *     summary="Buscar un cliemte mediante un email",
+    *     description="Retorna el cliente con el email ingresado",
     *     @OA\Parameter(
-    *          name="nombre",
-    *          description="nombre del cliente",
+    *          name="email",
+    *          description="email del cliente",
     *          required=true,
     *          in="path",
     *          @OA\Schema(
@@ -93,7 +93,7 @@ class ClienteController extends Controller
     *     ),
     *     @OA\Response(
     *         response=400,
-    *         description="nombre del cliente invalido"
+    *         description="email del cliente invalido"
     *     ),
     *     @OA\Response(
     *         response=404,
@@ -101,8 +101,8 @@ class ClienteController extends Controller
     *     )
     * )
     */
-    public function searchByName($nombre){
-        $cliente = Cliente::where('nombre', 'iLIKE', '%' . $nombre . '%')->select('id','nombre','email')->get();
+    public function searchByName($email){
+        $cliente = Cliente::where('email', 'iLIKE', '%' . $email . '%')->select('id','nombre','email')->get();
 
         return response()->json($cliente);
     }
