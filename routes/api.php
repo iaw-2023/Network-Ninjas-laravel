@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Rest\V1\ProductoController;
+use App\Http\Controllers\Rest\V1\ClienteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], function(){
+    Route::apiResource('productos',ProductoController::class);
+    Route::apiresource('categorias',CategoriumController::class);
+    Route::apiresource('pedidos',PedidoController::class);
+    Route::apiresource('detalles',DetallesPedidoController::class);
+    Route::apiresource('clientes',ClienteController::class);
+    Route::get('/productos/search/{nombre}', [ProductoController::class, 'searchByName']);
+    Route::get('/productos/search/categoria/{id_categoria}', [ProductoController::class, 'searchByCategory']);
+    Route::get('/clientes/search/{nombre}', [ClienteController::class, 'searchByName']);
+});
+
+
+
