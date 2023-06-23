@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Rest\V1\ProductoController;
 use App\Http\Controllers\Rest\V1\ClienteController;
+use App\Http\Controllers\Rest\V1\PedidoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
