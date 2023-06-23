@@ -91,7 +91,7 @@ class PedidoController extends Controller
     * )
     */
     public function searchByClientId($id){
-        $pedidos = Pedido::where('id_cliente', $id)->get();
+        $pedidos = Pedido::where('id_cliente', 'iLIKE', '%' . $id . '%')->get();
 
         return response()->json($pedidos);
     }
