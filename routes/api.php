@@ -3,6 +3,7 @@
 use App\Http\Controllers\Rest\V1\ProductoController;
 use App\Http\Controllers\Rest\V1\ClienteController;
 use App\Http\Controllers\Rest\V1\PedidoController;
+use App\Http\Controllers\Rest\V1\DetallesPedidoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::get('/productos/search/categoria/{id_categoria}', [ProductoController::class, 'searchByCategory']);
     Route::get('/clientes/search/{nombre}', [ClienteController::class, 'searchByName']);
     Route::get('/pedidos/search/{id}', [PedidoController::class, 'searchByClientId']);
+    Route::get('/detalles/search/{id}', [DetallesPedidoController::class, 'searchByOrderId']);
 });
 
 

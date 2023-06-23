@@ -71,4 +71,39 @@ class DetallesPedidoController extends Controller
 
     }
 
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/detalles/search/{id}",
+    *     tags={"detalles"},
+    *     summary="Buscar los  detalles de un pedido por su id",
+    *     description="Retorna los detalles del pedido",
+    *     @OA\Parameter(
+    *          name="id",
+    *          description="id del pedido",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelven los detalles del pedido"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="id de pedido invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el o los detalles"
+    *     )
+    * )
+    */
+    public function searchByOrderId($id){
+        $detalles = DetallesPedido::where('id_pedido', 'iLIKE', '%' . $id . '%')->select('precio_total','cantidad','id_producto')->get();
+
+        return response()->json($detalles);
+    }
+
 }
