@@ -61,4 +61,39 @@ class PedidoController extends Controller
             }
     }
 
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/pedidos/search/{id}",
+    *     tags={"pedidos"},
+    *     summary="Buscar los pedidos de un cliente por su id",
+    *     description="Retorna los pedidos del cliente",
+    *     @OA\Parameter(
+    *          name="id",
+    *          description="id del cliente",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelven los pedidos del cliente"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="id de cliente invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el o los pedidos"
+    *     )
+    * )
+    */
+    public function searchByClientId($id){
+        $pedidos = Pedido::where('id_cliente', 'iLIKE', '%' . $id . '%')->select('fecha_pedido','precio')->get();
+
+        return response()->json($pedidos);
+    }
+
 }
