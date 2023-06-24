@@ -101,7 +101,7 @@ class DetallesPedidoController extends Controller
     * )
     */
     public function searchByOrderId($id){
-        $detalles = DetallesPedido::where('id_pedido', 'iLIKE', '%' . $id . '%')->select('precio_total','cantidad','id_producto')->get();
+        $detalles = DetallesPedido::where('id_pedido', 'iLIKE', '%' . $id . '%')->select('id','precio_total','cantidad','id_producto')->get();
 
         return response()->json($detalles);
     }
