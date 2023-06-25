@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Rest\V1\AuthController;
 use App\Http\Controllers\Rest\V1\ProductoController;
 use App\Http\Controllers\Rest\V1\ClienteController;
 use App\Http\Controllers\Rest\V1\PedidoController;
@@ -34,6 +35,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::get('/clientes/search/{nombre}', [ClienteController::class, 'searchByName']);
     Route::get('/detalles/search/{id}', [DetallesPedidoController::class, 'searchByOrderId']);
     Route::get('/pedidos/search/{id}', [PedidoController::class, 'searchByClientId'])->middleware('auth:sanctum');
+    Route::post('/register',[AuthController::class, 'register']);
 });
 
 
