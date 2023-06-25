@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['auth:sanctum']], function (Request $request) {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/pedidos/search/{id}', [PedidoController::class, 'searchByClientId']);
 });
 
