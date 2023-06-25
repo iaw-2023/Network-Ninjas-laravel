@@ -36,6 +36,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::get('/detalles/search/{id}', [DetallesPedidoController::class, 'searchByOrderId']);
     Route::get('/pedidos/search/{id}', [PedidoController::class, 'searchByClientId'])->middleware('auth:sanctum');
     Route::post('/register',[AuthController::class, 'register']);
+    Route::post('/login',[AuthController::class, 'login']);
 });
 
 
