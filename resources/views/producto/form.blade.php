@@ -5,6 +5,7 @@
             {{ Form::label('nombre') }}
             {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'required', 'pattern'=>'([A-Z]{1})([a-z]+)(\s([A-Z]|[a-z]|[0-9]|-)+)*', 'maxlength=50', 'title'=>"Debe comenzar con una letra mayuscula, seguido de al menos una minuscula, y alguna combinacion de letras, numeros, guiones y espacios. \nEjemplo: Audi R8-V8 2003"]) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+
         </div>
         <div class="form-group">
             {{ Form::label('precio') }}
