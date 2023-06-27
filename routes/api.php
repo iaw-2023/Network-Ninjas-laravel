@@ -38,7 +38,6 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::post('/register',[AuthController::class, 'register']);
     Route::post('/login',[AuthController::class, 'login']);
     Route::post('/paymentMP', [PedidoController::class, 'payWithMercadoPago']);
-
 });
 
 
