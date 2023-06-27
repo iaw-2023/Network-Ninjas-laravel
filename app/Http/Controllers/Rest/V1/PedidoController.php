@@ -102,6 +102,7 @@ class PedidoController extends Controller
 
         $payment = new \MercadoPago\Payment();
 
+
         $contents = $request;
         $payment->transaction_amount = $contents['transaction_amount'];
         $payment->token = $contents['token'];
