@@ -96,4 +96,5 @@ class PedidoController extends Controller
         return response()->json($pedidos);
     }
 
+
 }
