@@ -96,4 +96,36 @@ class PedidoController extends Controller
         return response()->json($pedidos);
     }
 
+    public function payWithMercadoPago(Request $request){
+
+        \MercadoPago\SDK::setAccessToken("TEST-6784191206263032-062617-fc88b20db6035abd95b1cd2b2f076e79-709192249");
+
+        $payment = new \MercadoPago\Payment();
+
+        $contents = $request;
+        $payment->transaction_amount = $contents['transaction_amount'];
+        $payment->token = $contents['token'];
+        $payment->installments = $contents['installments'];
+        $payment->payment_method_id = $contents['payment_method_id'];
+        $payment->issuer_id = $contents['issuer_id'];
+
+        $payer = new \MercadoPago\Payer();
+        $payer->email = $contents['payer']['email'];
+        $payer->identification = array(
+            "type" => $contents['payer']['identification']['type'],
+            "number" => $contents['payer']['identification']['number']
+        );
+
+        $payment->payer = $payer;
+
+        $payment->save();
+
+        $response = array(
+            'status' => 'approved',
+            'status_detail' => 'accredited',
+            'id' => 1
+        );
+        return response()->json($response);
+    }
+
 }
