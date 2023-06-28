@@ -36,11 +36,11 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::get('/detalles/search/{id}', [DetallesPedidoController::class, 'searchByOrderId'])->middleware('auth:sanctum');
     Route::get('/pedidos/search/{id}', [PedidoController::class, 'searchByClientId'])->middleware('auth:sanctum');
     Route::post('/register',[AuthController::class, 'register']);
-    Route::post('/login',[AuthController::class, 'login']);
-    Route::post('/pedidos/compra', [PedidoController::class, 'store'])->middleware('auth:sanctum');
     Route::post('/detalles/compra', [DetallesPedidoController::class, 'store'])->middleware('auth:sanctum');
     Route::post('/clientes/compra', [ClienteController::class, 'store'])->middleware('auth:sanctum');
     Route::post('/paymentMP', [PedidoController::class, 'payWithMercadoPago']);
+    Route::post('/pedidos/compra', [PedidoController::class, 'store'])->middleware('auth:sanctum');
+    Route::post('/login',[AuthController::class, 'login']);
 });
 
 
