@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.4",
-        "mercadopago/dx-php": "^y2.5.3",
+        "mercadopago/dx-php": "^2.5.3",
         "mercadopago/sdk": "^0.5.6"
     },
     "require-dev": {
