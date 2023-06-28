@@ -8,6 +8,7 @@ use App\Models\Cliente;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
+
 class PedidoController extends Controller
 {
 
@@ -121,9 +122,9 @@ class PedidoController extends Controller
         $payment->save();
 
         $response = array(
-            'status' => 'approved',
-            'status_detail' => 'accredited',
-            'id' => 1
+            'status' => $payment->status,
+            'status_detail' => $payment->status_detail,
+            'id' => $payment->id
         );
         return response()->json($response);
     }
