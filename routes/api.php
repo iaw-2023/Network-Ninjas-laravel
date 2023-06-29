@@ -41,6 +41,7 @@ Route::group(['prefix'=>'v1','namespace'=>'App\Http\Controllers\Rest\V1'], funct
     Route::post('/paymentMP', [PedidoController::class, 'payWithMercadoPago']);
     Route::post('/pedidos/compra', [PedidoController::class, 'store'])->middleware('auth:sanctum');
     Route::post('/login',[AuthController::class, 'login']);
+    Route::post('/logout',[AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
 
