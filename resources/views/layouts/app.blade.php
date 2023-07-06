@@ -48,10 +48,18 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @Auth
-                        <a class="nav-link" href="{{route('producto.index')}}">Productos</a>
-                        <a class="nav-link"  href="{{route('categorium.index')}}">Categorias</a>
-                        <a class="nav-link"  href="{{route('pedido.index')}}">Pedidos</a>
-                        <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
+                        @if(Auth::user()->rol =='admin' || Auth::user()->rol == 'cargador')
+                            <a class="nav-link" href="{{route('producto.index')}}">Productos</a>
+                        @endif
+                        @if(Auth::user()->rol =='admin' || Auth::user()->rol == 'cargador')
+                            <a class="nav-link"  href="{{route('categorium.index')}}">Categorias</a>
+                        @endif
+                        @if(Auth::user()->rol =='admin' || Auth::user()->rol == 'ventas')
+                            <a class="nav-link"  href="{{route('pedido.index')}}">Pedidos</a>
+                        @endif
+                        @if(Auth::user()->rol =='admin' || Auth::user()->rol == 'cargador')
+                            <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
+                        @endif
                         @endAuth
                     </ul>
 

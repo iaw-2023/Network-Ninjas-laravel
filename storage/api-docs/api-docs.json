@@ -265,6 +265,38 @@
                 }
             }
         },
+        "/rest/v1/detalles/search/{id}": {
+            "get": {
+                "tags": [
+                    "detalles"
+                ],
+                "summary": "Buscar los  detalles de un pedido por su id",
+                "description": "Retorna los detalles del pedido",
+                "operationId": "a186dbcabef9bc51db25e22060d42597",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id del pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven los detalles del pedido"
+                    },
+                    "400": {
+                        "description": "id de pedido invalido"
+                    },
+                    "404": {
+                        "description": "No se encontro el o los detalles"
+                    }
+                }
+            }
+        },
         "/rest/v1/pedidos": {
             "post": {
                 "tags": [
@@ -321,6 +353,38 @@
                     },
                     "405": {
                         "description": "Entrada invalida"
+                    }
+                }
+            }
+        },
+        "/rest/v1/pedidos/search/{id}": {
+            "get": {
+                "tags": [
+                    "pedidos"
+                ],
+                "summary": "Buscar los pedidos de un cliente por su id",
+                "description": "Retorna los pedidos del cliente",
+                "operationId": "1dbf5427851bc49085029a3436b7ce98",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id del cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se devuelven los pedidos del cliente"
+                    },
+                    "400": {
+                        "description": "id de cliente invalido"
+                    },
+                    "404": {
+                        "description": "No se encontro el o los pedidos"
                     }
                 }
             }

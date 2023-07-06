@@ -8,6 +8,7 @@ use App\Models\Cliente;
 use App\Models\DetallesPedido;
 use Illuminate\Http\Request;
 
+
 class PedidoController extends Controller
 {
 
@@ -59,6 +60,73 @@ class PedidoController extends Controller
             else{
                 return response()->json(array('status'=>'error','msg'=>'ID de cliente invalido'),400);
             }
+    }
+
+    /**
+    * @OA\Get(
+    *     path="/rest/v1/pedidos/search/{id}",
+    *     tags={"pedidos"},
+    *     summary="Buscar los pedidos de un cliente por su id",
+    *     description="Retorna los pedidos del cliente",
+    *     @OA\Parameter(
+    *          name="id",
+    *          description="id del cliente",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Se devuelven los pedidos del cliente"
+    *     ),
+    *     @OA\Response(
+    *         response=400,
+    *         description="id de cliente invalido"
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="No se encontro el o los pedidos"
+    *     )
+    * )
+    */
+    public function searchByClientId($id){
+        $pedidos = Pedido::where('id_cliente', 'iLIKE', '%' . $id . '%')->select('id','fecha_pedido','precio')->get();
+
+        return response()->json($pedidos);
+    }
+
+    public function payWithMercadoPago(Request $request){
+
+        \MercadoPago\SDK::setAccessToken("TEST-6784191206263032-062617-fc88b20db6035abd95b1cd2b2f076e79-709192249");
+
+        $payment = new \MercadoPago\Payment();
+
+        $contents = $request;
+        $payment->transaction_amount = $contents['transaction_amount'];
+        $payment->token = $contents['token'];
+        $payment->installments = $contents['installments'];
+        $payment->payment_method_id = $contents['payment_method_id'];
+        $payment->issuer_id = $contents['issuer_id'];
+
+        $payer = new \MercadoPago\Payer();
+        $payer->email = $contents['payer']['email'];
+        $payer->identification = array(
+            "type" => $contents['payer']['identification']['type'],
+            "number" => $contents['payer']['identification']['number']
+        );
+
+        $payment->payer = $payer;
+
+        $payment->save();
+
+        $response = array(
+            'status' => $payment->status,
+            'status_detail' => $payment->status_detail,
+            'id' => $payment->id
+        );
+        return response()->json($response);
     }
 
 }
